@@ -16,6 +16,12 @@
       "amd_pstate=active"
     ];
 
+  #Swapfile
+  swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 8 * 1024;
+  } ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -47,6 +53,11 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
+  #Enable bluetooth
+  hardware.bluetooth.enable = true;
+  #Bluetooth on power on
+  hardware.bluetooth.powerOnBoot = true ;
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -125,6 +136,11 @@
     eww
     quickshell
     kitty
+    onlyoffice-desktopeditors
+    pipes
+    kdePackages. bluez-qt
+    kdePackages.bluedevil
+    bluez
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
