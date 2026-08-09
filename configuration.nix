@@ -15,7 +15,7 @@
       "splash"
       "amd_pstate=active"
     ];
-
+   boot.kernelModules = [ "hid-playstation" ];
   #Swapfile
   swapDevices = [ {
     device = "/var/lib/swapfile";
@@ -54,10 +54,20 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  #Enable bluetooth
-  hardware.bluetooth.enable = true;
-  #Bluetooth on power on
-  hardware.bluetooth.powerOnBoot = true ;
+  # Enable flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Enable bluetooth   
+  hardware.bluetooth = {
+  enable = true;
+  powerOnBoot = true;
+  settings = {
+    General = {
+      # "always" fixes a known bug where DualSense/Xbox controllers drop instantly after pairing
+      JustWorksRepairing = "always"; 
+     };
+   };
+ };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -141,7 +151,23 @@
     kdePackages. bluez-qt
     kdePackages.bluedevil
     bluez
+    stow
+    matugen
+    rofi
+    zsh
+    lutris
+    clamav
+    eden
+    unrar
+    killall
   ];
+
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+    updater.interval = "daily";
+  };
+ 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
