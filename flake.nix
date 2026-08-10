@@ -30,14 +30,14 @@
         ./configuration.nix           
         
         # --- Desktop Modules ---
-        ./hyprland-desktop.nix         
-        ./kde-desktop.nix
-        ./niri-desktop.nix              
+        ./modules/hyprland-desktop.nix         
+        ./modules/kde-desktop.nix
+        ./modules/niri-desktop.nix              
         
         # --- Modules ---
-        ./apps.nix                     
-        ./gaming.nix                   
-        ./security.nix                 
+        ./modules/apps.nix                     
+        ./modules/gaming.nix                   
+        ./modules/security.nix                 
       ];
     };
         # Change from packages.${system}... to this:
