@@ -2,46 +2,60 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  #  Base System Imports
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-   boot.kernelParams = [
-      "quiet"
-      "splash"
-      "amd_pstate=active"
-    ];
-   boot.kernelModules = [ "hid-playstation" ];
-  #Swapfile
+  #  Graphics and Display Managers
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true; # SDDM will detect and list Hyprland, KDE, and Niri
+
+  #  Keyboard Layout
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  #  Printing Services
+  services.printing.enable = true;
+
+  #  Audio Processing Stack (Pipewire Framework)
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Bootloader configurations
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "amd_pstate=active"
+  ];
+
+  # System Swap Space
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 8 * 1024;
   } ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
+  # Network & Identity Settings
+  networking.hostName = "nixos"; 
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Localisation & Time
   time.timeZone = "Asia/Kuala_Lumpur";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -54,146 +68,28 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  # Global Nix Configuration
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
-  # Enable bluetooth   
-  hardware.bluetooth = {
-  enable = true;
-  powerOnBoot = true;
-  settings = {
-    General = {
-      # "always" fixes a known bug where DualSense/Xbox controllers drop instantly after pairing
-      JustWorksRepairing = "always"; 
-     };
-   };
- };
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # User Account Management
   users.users."abyss" = {
     isNormalUser = true;
     description = "abyss";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
   };
 
-  # Install firefox.
-  programs.firefox = {
-    enable = true;
-    policies = {
-      DisableTelemetry = true;
-    };
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Core Tools (Always available even if modules fail to load)
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
     git
     btop
-    fastfetch
-    proton-vpn
-    obsidian
-    discord
-    telegram-desktop
-    yt-dlp
-    cbonsai
-    cmatrix
-    cava
-    eww
-    quickshell
-    kitty
-    onlyoffice-desktopeditors
-    pipes
-    kdePackages. bluez-qt
+    kdePackages.bluez-qt
     kdePackages.bluedevil
     bluez
-    stow
-    matugen
-    rofi
-    zsh
-    lutris
-    clamav
-    eden
-    unrar
-    killall
   ];
 
-  services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-    updater.interval = "daily";
-  };
- 
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "26.05"; # Did you read the comment?
-
+  # System State Version
+  system.stateVersion = "26.05";
 }
