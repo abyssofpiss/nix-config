@@ -1,11 +1,15 @@
 # /etc/nixos/flake.nix
 {
-  description = "Hyprland and KDE NixOS configuration flake";
+  description = "Hyprland, KDE and Niri + other stuff";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgsveryold.url = "github:nixos/nixpkgs?ref=nixos-21.11";
     
+    #Niri Flake
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
     # noctalia
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
@@ -22,12 +26,14 @@
       inherit system;
       specialArgs = { inherit inputs; }; 
       modules = [
+        inputs.niri.nixosModules.niri
         ./hardware-configuration.nix   
         ./configuration.nix            
         
         # --- Desktop Modules ---
         ./modules/hyprland-desktop.nix         
         ./modules/kde-desktop.nix
+        ./modules/niri-desktop.nix
         
         # --- Modules ---
         ./modules/apps.nix                     
