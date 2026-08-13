@@ -1,13 +1,10 @@
+# /etc/nixos/flake.nix
 {
-  description = "Niri, Hyprland, and KDE NixOS configuration flake";
+  description = "Hyprland and KDE NixOS configuration flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgsveryold.url = "github:nixos/nixpkgs?ref=nixos-21.11";
-    
-    # niri
-    niri.url = "github:epireyn/niri-flake";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
     
     # noctalia
     noctalia.url = "github:noctalia-dev/noctalia";
@@ -25,22 +22,20 @@
       inherit system;
       specialArgs = { inherit inputs; }; 
       modules = [
-        inputs.niri.nixosModules.niri 
         ./hardware-configuration.nix   
-        ./configuration.nix           
+        ./configuration.nix            
         
         # --- Desktop Modules ---
         ./modules/hyprland-desktop.nix         
         ./modules/kde-desktop.nix
-        ./modules/niri-desktop.nix              
         
         # --- Modules ---
         ./modules/apps.nix                     
-        ./modules/gaming.nix                   
+        ./modules/gaming.nix                    
         ./modules/security.nix                 
       ];
     };
-        # Change from packages.${system}... to this:
+
     packages.x86_64-linux.hello = pkgs.hello;
     packages.x86_64-linux.default = pkgs.hello;
 
