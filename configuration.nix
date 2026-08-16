@@ -75,6 +75,7 @@
   # User Account Management
   users.users."abyss" = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "abyss";
     extraGroups = [ "networkmanager" "wheel" ];
   };
@@ -90,11 +91,10 @@
     bluez
   ];
 
-    # System-wide shell shortcuts
+  # System-wide shell shortcuts
   environment.shellAliases = {
     nixos-switch = "sudo nixos-rebuild switch --flake ~/nix-flake/#nixos";
   };
-
 
   # System State Version
   system.stateVersion = "26.05";
