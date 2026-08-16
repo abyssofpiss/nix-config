@@ -24,6 +24,10 @@
     pipes
     fastfetch
 
+    # Fonts
+    nerd-fonts.mononoki
+    nerd-fonts.agave
+
     # Utilities
     stow
     yt-dlp
