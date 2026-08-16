@@ -94,6 +94,7 @@
   # System-wide shell shortcuts
   environment.shellAliases = {
     nixos-switch = "sudo nixos-rebuild switch --flake ~/nix-flake/#nixos";
+    list = "ls -l";
   };
 
   # System State Version
