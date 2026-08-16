@@ -23,6 +23,9 @@
     cava
     pipes
     fastfetch
+    zsh
+    starship
+    kitty
 
     # Fonts
     nerd-fonts.mononoki
