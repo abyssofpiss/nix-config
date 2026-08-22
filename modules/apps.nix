@@ -64,5 +64,8 @@
     yt-dlp
     unrar
     killall
+
+    #Game
+    osu-lazer
   ];
 }
