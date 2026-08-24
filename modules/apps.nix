@@ -64,6 +64,7 @@
     yt-dlp
     unrar
     killall
+    qbittorrent
 
     #Game
     osu-lazer
