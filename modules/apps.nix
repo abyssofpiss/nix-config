@@ -65,6 +65,7 @@
     unrar
     killall
     qbittorrent
+    flatpak
 
     #Game
     osu-lazer
