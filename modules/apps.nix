@@ -66,6 +66,7 @@
     killall
     qbittorrent
     flatpak
+    easyeffects
 
     #Game
     osu-lazer
