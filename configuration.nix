@@ -37,13 +37,12 @@
     extraConfig.pipewire."99-lowlatency" = {
     "context.properties" = {
       "default.clock.rate" = 48000;
-      "default.clock.quantum" = 128; # Low buffer for low latency (lower = less delay, higher CPU load)
+      "default.clock.quantum" = 128; 
       "default.clock.min-quantum" = 32;
       "default.clock.max-quantum" = 1024;
     };
   };
 };
-  };
 
   # Bootloader configurations
   boot.loader.systemd-boot.enable = true;
