@@ -89,7 +89,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "abyss";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
   };
 
   # Core Tools (Always available even if modules fail to load)
