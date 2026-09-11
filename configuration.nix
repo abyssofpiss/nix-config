@@ -53,8 +53,6 @@
     "amd_pstate=active"
   ];
 
-  systemd.services.fwupd-refresh.enable = false;
-
   # System Swap Space
   swapDevices = [ {
     device = "/var/lib/swapfile";
