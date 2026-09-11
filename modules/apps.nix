@@ -66,7 +66,11 @@
     killall
     qbittorrent
     flatpak
+
+    # Audio & music
     easyeffects
+    ardour
+    neural-amp-modeler-lv2
 
     #Game
     osu-lazer
