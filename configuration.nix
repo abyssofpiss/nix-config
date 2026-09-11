@@ -90,6 +90,24 @@
     extraGroups = [ "networkmanager" "wheel" "audio" ];
   };
 
+  
+  # For the DAWs to work optimally
+  security.pam.loginLimits = [
+  {
+    domain = "@audio";
+    type = "-";
+    item = "rtprio";
+    value = "99";
+  }
+  {
+    domain = "@audio";
+    type = "-";
+    item = "memlock";
+    value = "unlimited";
+  }
+];
+
+
   # Core Tools (Always available even if modules fail to load)
   environment.systemPackages = with pkgs; [
     neovim
