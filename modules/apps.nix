@@ -71,6 +71,7 @@
     easyeffects
     ardour
     neural-amp-modeler-lv2
+    zrythm
 
     #Game
     osu-lazer
