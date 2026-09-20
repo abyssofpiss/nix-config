@@ -13,8 +13,14 @@
 
   #  Graphics and Display Managers
   services.xserver.enable = true;
-  services.displayManager.sddm.enable = true; # SDDM will detect and list Hyprland, KDE, and Niri
-
+  services.displayManager.sddm = {
+    enable = true; # SDDM will detect and list Hyprland, KDE, and Niri
+    wayland.enable = true;
+    
+    environment = {
+      GST_PLUGIN_SYSTEM_PATH_1_) = "${pkgs.gst_all_1.gst-plugins-base}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-good}/lib/gstreamer-1.0:${pkgs.gst-plugins-bad}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-ugly}/lib/gstreamer-1.0";
+    };
+  };
   #  Keyboard Layout
   services.xserver.xkb = {
     layout = "us";
