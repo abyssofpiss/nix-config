@@ -52,7 +52,7 @@
 
           programs.qylock = {
             enable = true;
-            theme = "nier-automata";
+            theme = "Enfield";
 
             themeOptions = {
               terraria.backgroundMode = "time";
