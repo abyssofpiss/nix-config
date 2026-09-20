@@ -75,7 +75,7 @@
 
    installPhase = ''
      mkdir -p $out
-     cp -r EVA-01/* $out/
+     cp -r * $out/
    '';
   };
 };
