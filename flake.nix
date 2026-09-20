@@ -16,7 +16,7 @@
 
     # Qylock SDDM lockscreen
     qylock.url = "github:Darkkal44/qylock";
-    qylock.inputs.nixpkgs.follows = "nixpkgs";
+    inputs.qylock.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, ... } @ inputs:
