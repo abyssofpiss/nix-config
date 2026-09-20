@@ -75,7 +75,7 @@
 
    installPhase = ''
      mkdir -p $out
-     cp -r themes/eva02/1080p/* $out/
+     cp -r themes/eva01/1080p/* $out/
    '';
   };
 };
