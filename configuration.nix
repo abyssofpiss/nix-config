@@ -70,7 +70,7 @@
       owner = "Aleph1-9012";
       repo = "Evangelion";
       rev = "main";
-      hash = "sha256-1111111111111111111111111111111111111111111="; # Placeholder hash
+      hash = "sha256-ZZS0ke8OKHBKuSbRKBHNp+L12UjHD3wqnVGL9OylV5M=";
    };
 
    installPhase = ''
