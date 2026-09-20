@@ -31,7 +31,7 @@
       specialArgs = { inherit inputs; }; 
       modules = [
         inputs.niri.nixosModules.niri
-        inpits.qylock.nixosModules.default
+        inputs.qylock.nixosModules.default
         ./hardware-configuration.nix   
         ./configuration.nix            
         
