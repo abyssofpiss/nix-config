@@ -52,7 +52,7 @@
 
           programs.qylock = {
             enable = true;
-            theme = "Endfield";
+            theme = "enfield";
 
             themeOptions = {
               terraria.backgroundMode = "time";
