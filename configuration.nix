@@ -22,7 +22,9 @@
   # Set GStreamer plugin path globally so SDDM and QtMultimedia can find codecs
   environment.sessionVariables = {
     GST_PLUGIN_SYSTEM_PATH_1_0 = "${pkgs.gst_all_1.gst-plugins-base}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-good}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-bad}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-ugly}/lib/gstreamer-1.0";
-  };  #  Keyboard Layout
+  }; 
+
+ #  Keyboard Layout
   services.xserver.xkb = {
     layout = "us";
     variant = "";
