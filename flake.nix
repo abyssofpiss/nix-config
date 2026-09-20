@@ -47,11 +47,6 @@
         
         # --- Qylock SDDM config ---
         ({ pkgs, ... }: {
-          nix.settings = {
-            extra-substituters = [ "https://quickshell.cachix.org" ];
-            extra-trusted-public-keys = [ "quickshell.cachix.org-1:3A1192M6gEWWzR2gA3vP973V98J4J1I=" ];
-          };
-
           services.displayManager.sddm.enable = true;
           services.displayManager.sddm.wayland.enable = true;
 
