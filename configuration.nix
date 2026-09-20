@@ -55,10 +55,30 @@
 
   # Bootloader configurations
   boot.loader.systemd-boot.enable = false;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber =  true;
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+    useOSProber =  true;
+
+  # Theme
+  theme = pkgs.stdenv.mkDerivation {
+    pname = "evangelion-grub-theme";
+    version = "1.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "Aleph1-9012";
+      repo = "Evangelion";
+      rev = "main";
+      hash = "sha256-1111111111111111111111111111111111111111111="; # Placeholder hash
+   };
+
+   installPhase = ''
+     mkdir -p $out
+     cp -r EVA-01/* $out/
+   '';
+  };
+};
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
     "quiet"
