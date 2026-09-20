@@ -13,6 +13,10 @@
     # noctalia
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Qylock SDDM lockscreen
+    qylock.url = "github:Darkkal44/qylock";
+    qylock.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, ... } @ inputs:
@@ -27,6 +31,7 @@
       specialArgs = { inherit inputs; }; 
       modules = [
         inputs.niri.nixosModules.niri
+        qylock.nixosModules.default
         ./hardware-configuration.nix   
         ./configuration.nix            
         
@@ -38,7 +43,30 @@
         # --- Modules ---
         ./modules/apps.nix                     
         ./modules/gaming.nix                    
-        ./modules/security.nix                 
+        ./modules/security.nix
+        
+        # --- Qylock SDDM config ---
+        ({ pkgs, ... }: {
+          nix.settings = {
+            extra-substituters = [ "https://quickshell.cachix.org" ];
+            extra-trusted-public-keys = [ "quickshell.cachix.org-1:3A1192M6gEWWzR2gA3vP973V98J4J1I=" ];
+          };
+
+          services.displayManager.sddm.enable = true;
+          services.displayManager.sddm.wayland.enable = true;
+
+          programs.qylock = {
+            enable = true;
+            theme = "nier-automata";
+
+            themeOptions = {
+              terraria.backgroundMode = "time";
+              Genshin.backgroundMode = "time";
+              clockwork.orbital = { themeMode = "dark"; enableWindup = true; };
+              osu.gameMode = "menu";
+            };
+          };
+        }) 
       ];
     };
 
@@ -50,3 +78,4 @@
     };
   };
 }
+
