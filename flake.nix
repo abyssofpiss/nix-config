@@ -16,7 +16,7 @@
 
     # Qylock SDDM lockscreen
     qylock.url = "github:Darkkal44/qylock";
-    inputs.qylock.nixpkgs.follows = "nixpkgs";
+    qylock.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, ... } @ inputs:
@@ -31,7 +31,7 @@
       specialArgs = { inherit inputs; }; 
       modules = [
         inputs.niri.nixosModules.niri
-        qylock.nixosModules.default
+        inpits.qylock.nixosModules.default
         ./hardware-configuration.nix   
         ./configuration.nix            
         
