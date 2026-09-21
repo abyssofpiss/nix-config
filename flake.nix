@@ -52,7 +52,7 @@
 
           programs.qylock = {
             enable = true;
-            theme = "pixel-sakura";
+            theme = "pixel-munchlax";
 
             themeOptions = {
               terraria.backgroundMode = "time";
