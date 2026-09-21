@@ -52,7 +52,7 @@
 
           programs.qylock = {
             enable = true;
-            theme = "pixel/night-city";
+            theme = "pixel-night-city";
 
             themeOptions = {
               terraria.backgroundMode = "time";
