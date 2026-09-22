@@ -12,7 +12,7 @@
 
   programs.niri = {
     enable = true;
-    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = pkgs.niri;
   };
  
   # Config
