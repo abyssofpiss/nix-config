@@ -140,7 +140,6 @@
   }
 ];
 
-
   # Core Tools (Always available even if modules fail to load)
   environment.systemPackages = with pkgs; [
     neovim
@@ -156,6 +155,16 @@
   environment.shellAliases = {
     nixos-switch = "sudo nixos-rebuild switch --flake ~/nix-flake/#nixos";
   };
+
+  
+  # Automatic cleanup 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  nix.settings.auto-optimise-store = true;
 
   # System State Version
   system.stateVersion = "26.05";
