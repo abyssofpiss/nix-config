@@ -69,7 +69,7 @@
     src = pkgs.fetchFromGitHub {
       owner = "Aleph1-9012";
       repo = "Evangelion";
-      rev = "main";
+      rev = "fb785c3009a9346173d4b893d6aa36dd22052335";
       hash = "sha256-ZZS0ke8OKHBKuSbRKBHNp+L12UjHD3wqnVGL9OylV5M=";
    };
 
