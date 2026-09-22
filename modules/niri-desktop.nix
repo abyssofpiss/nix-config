@@ -7,13 +7,14 @@
     pkgs.brightnessctl
     pkgs.kitty
     pkgs.fuzzel
+    pkgs.xwayland-satellite
   ];
 
   programs.niri = {
     enable = true;
     package = pkgs.niri;
   };
-
+ 
   # Config
   environment.etc."niri/config.kdl".text = ''
     input {
