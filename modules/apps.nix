@@ -1,6 +1,20 @@
 { config, pkgs, ... }:
 
 {
+  # Fonts
+  fonts = {
+    enableDefaultPackages = true;
+    
+    packages = with pkgs; [
+     nerd-fonts.mononoki
+     nerd-fonts.agave
+     nerd-fonts.symbols-only
+     font-awesome
+     noto-fonts
+     noto-fonts-emoji
+    ];
+  };
+
   # Firefox with Telemetry Disabled
   programs.firefox = {
     enable = true;
@@ -55,10 +69,6 @@
     fastfetch
     kitty
     peaclock
-
-    # Fonts
-    nerd-fonts.mononoki
-    nerd-fonts.agave
 
     # Utilities
     yt-dlp
