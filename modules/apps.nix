@@ -54,6 +54,7 @@
     pipes
     fastfetch
     kitty
+    peaclock
 
     # Fonts
     nerd-fonts.mononoki
