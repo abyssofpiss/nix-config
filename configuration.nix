@@ -147,9 +147,8 @@
     wget
     git
     btop
-    kdePackages.bluez-qt
-    kdePackages.bluedevil
     bluez
+    bluetui
   ];
 
   # System-wide shell shortcuts
