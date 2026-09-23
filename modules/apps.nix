@@ -148,6 +148,11 @@
     nautilus
     file-roller
     zathura
+    yazi
+    bat
+    impala
+    wiremix
+    fzf
 
     # Audio & music
     easyeffects
