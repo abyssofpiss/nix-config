@@ -8,6 +8,10 @@
     pkgs.kitty
     pkgs.fuzzel
     pkgs.xwayland-satellite
+    pkgs.grim
+    pkgs.slurp
+    pkgs.wl-clipboard
+    pkgs.satty
   ];
 
   programs.niri = {
@@ -32,6 +36,7 @@
     binds {
       Mod+Return { spawn "kitty"; }
       Mod+Q { close-window; }
+      MOd+P { Take screenshot; }
     }
   '';
 }
