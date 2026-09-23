@@ -52,16 +52,16 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[░▒▓](tokyo_blue)[  ](bg:tokyo_blue fg:tokyo_black)[](fg:tokyo_blue bg:tokyo_subtle)[ $directory ](fg:tokyo_white bg:tokyo_subtle)[](fg:tokyo_subtle bg:tokyo_subtle2)[ $git_branch$git_status ](fg:tokyo_blue bg:tokyo_subtle2)[](fg:tokyo_subtle2 bg:tokyo_base)[ $nodejs$rust$golang$php ](fg:tokyo_blue bg:tokyo_base)[](fg:tokyo_base bg:tokyo_dark)[ $time ](fg:tokyo_subtle bg:tokyo_dark)[ ](fg:tokyo_dark)\n$character";
+      format = "[░▒▓](tokyo_blue)[   $username ](bg:tokyo_blue fg:tokyo_black)[](fg:tokyo_blue bg:tokyo_subtle)[ $directory ](fg:tokyo_white bg:tokyo_subtle)[](fg:tokyo_subtle bg:tokyo_subtle2)[ $git_branch$git_status ](fg:tokyo_blue bg:tokyo_subtle2)[](fg:tokyo_subtle2 bg:tokyo_base)[ $nodejs$rust$golang$php ](fg:tokyo_blue bg:tokyo_base)[](fg:tokyo_base bg:tokyo_dark)[ $time ](fg:tokyo_subtle bg:tokyo_dark)[ ](fg:tokyo_dark)\n$character";
       palette = "tokyo_night";
       palettes.tokyo_night = {
-        tokyo_black = "#15161e";
-        tokyo_blue = "#7aa2f7";
-        tokyo_white = "#c0caf5";
-        tokyo_subtle = "#292e42";
-        tokyo_subtle2 = "#3b4261";
-        tokyo_base = "#1a1b26";
-        tokyo_dark = "#16161e";
+        tokyo_black = "#22221b";
+        tokyo_blue = "#36a166";
+        tokyo_white = "#929181";
+        tokyo_subtle = "#5b9d48";
+        tokyo_subtle2 = "#5f9182";
+        tokyo_base = "#a5980d";
+        tokyo_dark = "#7d9726";
       };
 
       directory = {
@@ -153,6 +153,7 @@
     impala
     wiremix
     fzf
+    iwd
 
     # Audio & music
     easyeffects
