@@ -61,12 +61,10 @@
     nerd-fonts.agave
 
     # Utilities
-    stow
     yt-dlp
     unrar
     killall
     qbittorrent
-    flatpak
 
     # Audio & music
     easyeffects
