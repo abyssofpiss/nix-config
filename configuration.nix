@@ -13,6 +13,7 @@
 
   #  Graphics and Display Managers
   services.xserver.enable = true;
+  services.xserver.excludePackages = [ pkgs.xterm ];
   # Enable SDDM
   services.displayManager.sddm = {
     enable = true;
