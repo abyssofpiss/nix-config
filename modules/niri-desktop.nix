@@ -36,7 +36,6 @@
     binds {
       Mod+Return { spawn "kitty"; }
       Mod+Q { close-window; }
-      Mod+P { Take screenshot; }
     }
   '';
 }
