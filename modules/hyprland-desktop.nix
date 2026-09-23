@@ -11,7 +11,5 @@
     kitty       # Terminal emulator
     eww         # Widget/Bar builder
     quickshell  # Modern Qt shell runner
-    rofi        # Application launcher
-    matugen     # Material You color generator
   ];
 }
