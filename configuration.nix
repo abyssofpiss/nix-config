@@ -149,6 +149,7 @@
     btop
     bluez
     bluetui
+    upower
   ];
 
   # System-wide shell shortcuts
