@@ -74,12 +74,15 @@
       hash = "sha256-ZZS0ke8OKHBKuSbRKBHNp+L12UjHD3wqnVGL9OylV5M=";
    };
 
-   installPhase = ''
+  installPhase = ''
      mkdir -p $out
      cp -r themes/eva01/720p/* $out/
-   '';
+     '';
+    };
   };
-};
+
+  services.upower.enable = true;
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
     "quiet"
@@ -149,7 +152,6 @@
     btop
     bluez
     bluetui
-    upower
   ];
 
   # System-wide shell shortcuts
