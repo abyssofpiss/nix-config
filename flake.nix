@@ -36,8 +36,6 @@
         ./configuration.nix            
         
         # --- Desktop Modules ---
-        ./modules/hyprland-desktop.nix         
-        ./modules/kde-desktop.nix
         ./modules/niri-desktop.nix
         
         # --- Modules ---
