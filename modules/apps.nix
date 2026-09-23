@@ -52,29 +52,29 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[░▒▓](ayu_green)[  $username ](bg:ayu_green fg:ayu_bg)[](fg:ayu_green bg:ayu_subtle)[ $directory ](fg:ayu_fg bg:ayu_subtle)[](fg:ayu_subtle bg:ayu_subtle2)[ $git_branch$git_status ](fg:ayu_green bg:ayu_subtle2)[](fg:ayu_subtle2 bg:ayu_base)[ $nodejs$rust$golang$php ](fg:ayu_green bg:ayu_base)[](fg:ayu_base bg:ayu_dark)[ $time ](fg:ayu_fg bg:ayu_dark)[ ](fg:ayu_dark)\n$character";
-      palette = "ayu_light";
-      palettes.ayu_light = {
-        ayu_bg      = "#fcfcfc"; # Pure light background
-        ayu_dark    = "#f3f4f5"; # Soft light gray container
-        ayu_base    = "#e6e8eb"; # Base light border/panel
-        ayu_subtle  = "#fafafa"; # Subtle light highlight
-        ayu_subtle2 = "#e0e2e5"; # Secondary light highlight
-        ayu_fg      = "#5c6166"; # Dark gray text for high contrast on light
-        ayu_green   = "#6cbf00"; # Ayu Light Green accent
-        ayu_cyan    = "#22a4cc"; # Ayu Light Cyan accent
-        ayu_orange  = "#f29718"; # Ayu Light Orange accent
+      format = "[░▒▓](estuary_green)[  $username ](bg:estuary_green fg:estuary_bg)[](fg:estuary_green bg:estuary_subtle)[ $directory ](fg:estuary_fg bg:estuary_subtle)[](fg:estuary_subtle bg:estuary_subtle2)[ $git_branch$git_status ](fg:estuary_green bg:estuary_subtle2)[](fg:estuary_subtle2 bg:estuary_base)[ $nodejs$rust$golang$php ](fg:estuary_green bg:estuary_base)[](fg:estuary_base bg:estuary_dark)[ $time ](fg:estuary_fg bg:estuary_dark)[ ](fg:estuary_dark)\n$character";
+      palette = "atelier_estuary";
+      palettes.atelier_estuary = {
+        estuary_bg      = "#22221b"; # Base dark background
+        estuary_dark    = "#2a2a22"; # Container / edge shade
+        estuary_base    = "#302f27"; # Base section background
+        estuary_subtle  = "#5f5e4e"; # Muted section background
+        estuary_subtle2 = "#6c6b5a"; # Secondary muted background
+        estuary_fg      = "#e7e6df"; # Foreground text
+        estuary_green   = "#7d9726"; # Primary Estuary Green accent
+        estuary_teal    = "#5b9d48"; # Secondary Green/Teal accent
+        estuary_orange  = "#ba6236"; # Warning/Root accent
       };
 
       username = {
         show_always = true;
-        style_user = "bg:ayu_green fg:ayu_bg bold";
-        style_root = "bg:ayu_orange fg:ayu_bg bold";
+        style_user = "bg:estuary_green fg:estuary_bg bold";
+        style_root = "bg:estuary_orange fg:estuary_bg bold";
         format = "[$user]($style)";
       };
 
       directory = {
-        style = "fg:ayu_fg bg:ayu_subtle";
+        style = "fg:estuary_fg bg:estuary_subtle";
         format = "[$path]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
@@ -82,53 +82,54 @@
 
       git_branch = {
         symbol = "";
-        style = "bg:ayu_subtle2";
-        format = "[[ $symbol $branch ](fg:ayu_fg bg:ayu_subtle2)]($style)";
+        style = "bg:estuary_subtle2";
+        format = "[[ $symbol $branch ](fg:estuary_fg bg:estuary_subtle2)]($style)";
       };
 
       git_status = {
-        style = "bg:ayu_subtle2";
-        format = "[[($all_status$ahead_behind )](fg:ayu_fg bg:ayu_subtle2)]($style)";
+        style = "bg:estuary_subtle2";
+        format = "[[($all_status$ahead_behind )](fg:estuary_fg bg:estuary_subtle2)]($style)";
       };
 
       nodejs = {
         symbol = "";
-        style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
+        style = "bg:estuary_base";
+        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
       };
 
       rust = {
         symbol = "";
-        style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
+        style = "bg:estuary_base";
+        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
       };
 
       golang = {
         symbol = "";
-        style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
+        style = "bg:estuary_base";
+        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
       };
 
       php = {
         symbol = "🐘";
-        style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
+        style = "bg:estuary_base";
+        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
       };
 
       time = {
         disabled = false;
         time_format = "%R";
-        style = "bg:ayu_dark";
-        format = "[[  $time ](fg:ayu_fg bg:ayu_dark)]($style)";
+        style = "bg:estuary_dark";
+        format = "[[  $time ](fg:estuary_fg bg:estuary_dark)]($style)";
       };
 
       character = {
         disabled = false;
-        success_symbol = "[❯](bold #6cbf00)";
-        error_symbol = "[❯](bold #e65050)";
+        success_symbol = "[❯](bold #7d9726)";
+        error_symbol = "[❯](bold #ba6236)";
       };
     };
   };
+
   # Daily Drivers and Terminal Utilities
   environment.systemPackages = with pkgs; [
     # Social/Office
