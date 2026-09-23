@@ -53,17 +53,17 @@
     enable = true;
     settings = {
       format = "[░▒▓](ayu_green)[  $username ](bg:ayu_green fg:ayu_bg)[](fg:ayu_green bg:ayu_subtle)[ $directory ](fg:ayu_fg bg:ayu_subtle)[](fg:ayu_subtle bg:ayu_subtle2)[ $git_branch$git_status ](fg:ayu_green bg:ayu_subtle2)[](fg:ayu_subtle2 bg:ayu_base)[ $nodejs$rust$golang$php ](fg:ayu_green bg:ayu_base)[](fg:ayu_base bg:ayu_dark)[ $time ](fg:ayu_fg bg:ayu_dark)[ ](fg:ayu_dark)\n$character";
-      palette = "ayu_green";
-      palettes.ayu_green = {
-        ayu_bg      = "#0f1419"; # Base dark background
-        ayu_dark    = "#131721"; # Slightly lighter dark for contrast
-        ayu_base    = "#191e2a"; # Dark panel background
-        ayu_subtle  = "#212733"; # Subtle section background
-        ayu_subtle2 = "#2a3141"; # Secondary subtle background
-        ayu_fg      = "#e6e1cf"; # Main text color
-        ayu_green   = "#aad94c"; # Primary Ayu Green accent
-        ayu_cyan    = "#95e6cb"; # Secondary Cyan/Teal accent
-        ayu_orange  = "#ff8f40"; # Warning/Root accent
+      palette = "ayu_light";
+      palettes.ayu_light = {
+        ayu_bg      = "#fcfcfc"; # Pure light background
+        ayu_dark    = "#f3f4f5"; # Soft light gray container
+        ayu_base    = "#e6e8eb"; # Base light border/panel
+        ayu_subtle  = "#fafafa"; # Subtle light highlight
+        ayu_subtle2 = "#e0e2e5"; # Secondary light highlight
+        ayu_fg      = "#5c6166"; # Dark gray text for high contrast on light
+        ayu_green   = "#6cbf00"; # Ayu Light Green accent
+        ayu_cyan    = "#22a4cc"; # Ayu Light Cyan accent
+        ayu_orange  = "#f29718"; # Ayu Light Orange accent
       };
 
       username = {
@@ -83,36 +83,36 @@
       git_branch = {
         symbol = "";
         style = "bg:ayu_subtle2";
-        format = "[[ $symbol $branch ](fg:ayu_green bg:ayu_subtle2)]($style)";
+        format = "[[ $symbol $branch ](fg:ayu_fg bg:ayu_subtle2)]($style)";
       };
 
       git_status = {
         style = "bg:ayu_subtle2";
-        format = "[[($all_status$ahead_behind )](fg:ayu_green bg:ayu_subtle2)]($style)";
+        format = "[[($all_status$ahead_behind )](fg:ayu_fg bg:ayu_subtle2)]($style)";
       };
 
       nodejs = {
         symbol = "";
         style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
+        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
       };
 
       rust = {
         symbol = "";
         style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
+        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
       };
 
       golang = {
         symbol = "";
         style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
+        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
       };
 
       php = {
         symbol = "🐘";
         style = "bg:ayu_base";
-        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
+        format = "[[ $symbol ($version) ](fg:ayu_fg bg:ayu_base)]($style)";
       };
 
       time = {
@@ -124,12 +124,11 @@
 
       character = {
         disabled = false;
-        success_symbol = "[❯](bold #aad94c)";
-        error_symbol = "[❯](bold #ff3333)";
+        success_symbol = "[❯](bold #6cbf00)";
+        error_symbol = "[❯](bold #e65050)";
       };
     };
   };
-
   # Daily Drivers and Terminal Utilities
   environment.systemPackages = with pkgs; [
     # Social/Office
