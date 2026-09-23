@@ -63,17 +63,20 @@
     # Utilities
     yt-dlp
     unrar
+    p7zip
     killall
     qbittorrent
+    loupe
+    nautilus
+    file-roller
+    zathura
 
     # Audio & music
     easyeffects
     ardour
     neural-amp-modeler-lv2
     zrythm
-
-    #Game
-    osu-lazer
+    rmpc
 
     #Stuff for quickshell wallpapers
     gst_all_1.gstreamer
