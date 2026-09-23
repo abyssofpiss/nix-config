@@ -32,7 +32,7 @@
   };
 
   #  Printing Services
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   #  Audio Processing Stack (Pipewire Framework)
   services.pulseaudio.enable = false;
