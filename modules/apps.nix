@@ -77,6 +77,7 @@
     neural-amp-modeler-lv2
     zrythm
     rmpc
+    mpd
 
     #Stuff for quickshell wallpapers
     gst_all_1.gstreamer
