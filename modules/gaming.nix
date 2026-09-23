@@ -15,9 +15,10 @@
     };
   };
 
-  # Gaming Launcher
+  # games and apps that make the games work
   environment.systemPackages = with pkgs; [
     lutris
     eden
+    osu-lazer
   ];
 }
