@@ -52,71 +52,80 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[ ](tokyo_blue)[ $username ](bg:tokyo_blue fg:tokyo_black)[](fg:tokyo_blue bg:tokyo_subtle)[ $directory ](fg:tokyo_black bg:tokyo_subtle)[](fg:tokyo_subtle bg:tokyo_subtle2)[ $git_branch$git_status ](fg:tokyo_blue bg:tokyo_subtle2)[](fg:tokyo_subtle2 bg:tokyo_base)[ $nodejs$rust$golang$php ](fg:tokyo_blue bg:tokyo_base)[](fg:tokyo_base bg:tokyo_dark)[ $time ](fg:tokyo_subtle bg:tokyo_dark)[ ](fg:tokyo_dark)\n$character";
-      palette = "tokyo_night";
-      palettes.tokyo_night = {
-        tokyo_black = "#22221b";
-        tokyo_blue = "#36a166";
-        tokyo_white = "#929181";
-        tokyo_subtle = "#5b9d48";
-        tokyo_subtle2 = "#5f9182";
-        tokyo_base = "#a5980d";
-        tokyo_dark = "#7d9726";
+      format = "[░▒▓](ayu_green)[  $username ](bg:ayu_green fg:ayu_bg)[](fg:ayu_green bg:ayu_subtle)[ $directory ](fg:ayu_fg bg:ayu_subtle)[](fg:ayu_subtle bg:ayu_subtle2)[ $git_branch$git_status ](fg:ayu_green bg:ayu_subtle2)[](fg:ayu_subtle2 bg:ayu_base)[ $nodejs$rust$golang$php ](fg:ayu_green bg:ayu_base)[](fg:ayu_base bg:ayu_dark)[ $time ](fg:ayu_fg bg:ayu_dark)[ ](fg:ayu_dark)\n$character";
+      palette = "ayu_green";
+      palettes.ayu_green = {
+        ayu_bg      = "#0f1419"; # Base dark background
+        ayu_dark    = "#131721"; # Slightly lighter dark for contrast
+        ayu_base    = "#191e2a"; # Dark panel background
+        ayu_subtle  = "#212733"; # Subtle section background
+        ayu_subtle2 = "#2a3141"; # Secondary subtle background
+        ayu_fg      = "#e6e1cf"; # Main text color
+        ayu_green   = "#aad94c"; # Primary Ayu Green accent
+        ayu_cyan    = "#95e6cb"; # Secondary Cyan/Teal accent
+        ayu_orange  = "#ff8f40"; # Warning/Root accent
+      };
+
+      username = {
+        show_always = true;
+        style_user = "bg:ayu_green fg:ayu_bg bold";
+        style_root = "bg:ayu_orange fg:ayu_bg bold";
+        format = "[$user]($style)";
       };
 
       directory = {
-        style = "fg:tokyo_white bg:tokyo_subtle";
+        style = "fg:ayu_fg bg:ayu_subtle";
         format = "[$path]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
       };
-     
+
       git_branch = {
         symbol = "";
-        style = "bg:tokyo_subtle2";
-        format = "[[ $symbol $branch ](fg:tokyo_blue bg:tokyo_subtle2)]($style)";
+        style = "bg:ayu_subtle2";
+        format = "[[ $symbol $branch ](fg:ayu_green bg:ayu_subtle2)]($style)";
       };
 
       git_status = {
-        style = "bg:tokyo_subtle2";
-        format = "[[($all_status$ahead_behind )](fg:tokyo_blue bg:tokyo_subtle2)]($style)";
+        style = "bg:ayu_subtle2";
+        format = "[[($all_status$ahead_behind )](fg:ayu_green bg:ayu_subtle2)]($style)";
       };
 
       nodejs = {
         symbol = "";
-        style = "bg:tokyo_base";
-        format = "[[ $symbol ($version) ](fg:tokyo_blue bg:tokyo_base)]($style)";
+        style = "bg:ayu_base";
+        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
       };
 
       rust = {
         symbol = "";
-        style = "bg:tokyo_base";
-        format = "[[ $symbol ($version) ](fg:tokyo_blue bg:tokyo_base)]($style)";
+        style = "bg:ayu_base";
+        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
       };
 
       golang = {
         symbol = "";
-        style = "bg:tokyo_base";
-        format = "[[ $symbol ($version) ](fg:tokyo_blue bg:tokyo_base)]($style)";
+        style = "bg:ayu_base";
+        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
       };
 
       php = {
         symbol = "🐘";
-        style = "bg:tokyo_base";
-        format = "[[ $symbol ($version) ](fg:tokyo_blue bg:tokyo_base)]($style)";
+        style = "bg:ayu_base";
+        format = "[[ $symbol ($version) ](fg:ayu_green bg:ayu_base)]($style)";
       };
 
       time = {
         disabled = false;
-        time_format = "%R"; # Hour:Minute Format
-        style = "bg:tokyo_dark";
-        format = "[[  $time ](fg:tokyo_white bg:tokyo_dark)]($style)";
+        time_format = "%R";
+        style = "bg:ayu_dark";
+        format = "[[  $time ](fg:ayu_fg bg:ayu_dark)]($style)";
       };
 
       character = {
         disabled = false;
-        success_symbol = "[❯](bold green)";
-        error_symbol = "[❯](bold red)";
+        success_symbol = "[❯](bold #aad94c)";
+        error_symbol = "[❯](bold #ff3333)";
       };
     };
   };
