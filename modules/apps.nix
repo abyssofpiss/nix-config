@@ -147,6 +147,11 @@
     kitty
     peaclock
 
+    # icons and stuff
+    adwaita-icon-theme
+    hicolor-icon-theme
+    morewaita-icon-theme
+
     # Utilities
     yt-dlp
     unrar
