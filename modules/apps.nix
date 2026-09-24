@@ -151,6 +151,7 @@
     adwaita-icon-theme
     hicolor-icon-theme
     morewaita-icon-theme
+    gsettings-desktop-schemas
 
     # Utilities
     yt-dlp
