@@ -153,7 +153,7 @@
     bluez
     bluetui
     bibata-cursors
-    gcr
+    gcr_4
   ];
 
   # Cursor
@@ -175,7 +175,7 @@
   '';
 
   # gcr ssh prompt 
-  programs.ssh.askPassword = "{pkgs.gcr}/libexec/gcr-prompter";
+  programs.ssh.askPassword = "{pkgs.gcr_4}/libexec/gcr-prompter";
 
   # System-wide shell shortcuts
   environment.shellAliases = {
