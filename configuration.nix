@@ -13,11 +13,6 @@
 
   #  Graphics and Display Managers
   services.xserver.enable = true;
-  services.xserver.desktopManager.gnome.extraGSettingsOverides = ''
-    [org.gnome.desktop.interface]
-    color-scheme='prefer-dark'
-    icon-theme='Adwaita'
-  '';
   services.xserver.excludePackages = [ pkgs.xterm ];
   # Enable SDDM
   services.displayManager.sddm = {
@@ -219,7 +214,20 @@
   # stuffs for the files app
   services.gvfs.enable = true;
   services.dbus.enable = true;
-  programs.dconf.enable = true;
+  
+  programs.dconf = {
+    enable = true;
+    profiles.user.databases = [
+      {
+        settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+            icon-theme = "Adwaita";
+          };
+        }; 
+      };
+    ];
+  };
 
   xdg.portal = {
     enable = true;
