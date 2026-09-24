@@ -147,6 +147,7 @@
     fastfetch
     kitty
     peaclock
+    chafa
 
     # icons and stuff
     adwaita-icon-theme
