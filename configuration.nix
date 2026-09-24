@@ -18,6 +18,9 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    extraPackages = with pkgs; [
+      bibata-cursors
+    ];
     settings = {
       Theme = {
         CursorTheme = "Bibata-Modern-Classic";
@@ -211,6 +214,7 @@
   # stuffs for the files app
   services.gvfs.enable = true;
   services.dbus.enable = true;
+  programs.dconf.enable = true;
 
   xdg.portal = {
     enable = true;
