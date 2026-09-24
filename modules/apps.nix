@@ -149,11 +149,6 @@
 
     # icons and stuff
     adwaita-icon-theme
-    hicolor-icon-theme
-    morewaita-icon-theme
-    gsettings-desktop-schemas
-    gnome-themes-extra
-    adwaita-icon-theme-legacy
 
     # Utilities
     yt-dlp
