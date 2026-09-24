@@ -182,7 +182,6 @@
     bluetui
     bibata-cursors
     zenity
-    adwaita-icon-theme
     shared-mime-info
   ];
 
