@@ -153,6 +153,7 @@
     bluez
     bluetui
     bibata-cursors
+    gcr
   ];
 
   # Cursor
@@ -172,6 +173,9 @@
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.xsetroot}/bin/xsetroot -xcf ${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic/cursors/left_ptr 24
   '';
+
+  # gcr ssh prompt 
+  programs.shh.askPassword = "{pkgs.gcr}/libexec/gcr-prompter";
 
   # System-wide shell shortcuts
   environment.shellAliases = {
