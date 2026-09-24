@@ -182,6 +182,8 @@
     bluetui
     bibata-cursors
     zenity
+    adwaita-icon-theme
+    shared-mime-info
   ];
 
   # Cursor
@@ -206,6 +208,15 @@
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.writeShellScript "zenity-askpass" ''
     ${pkgs.zenity}/bin/zenity --password --title="Authentication Required" --text="$1"
   ''}";
+
+  # stuffs for the files app
+  services.gvfs.enable = true;
+  services.dbus.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
 
   # System-wide shell shortcuts
   environment.shellAliases = {
