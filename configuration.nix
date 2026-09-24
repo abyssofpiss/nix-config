@@ -64,10 +64,9 @@
   services.mpd = {
   enable = true;
   user = "abyss";
-  musicDirectory = "/home/abyss/Music";
   
   settings = {
-    # Wrap audio_output in a list using [ ]
+    music_directory = "/home/abyss/Music";
     audio_output = [
       {
         type = "pipewire";
