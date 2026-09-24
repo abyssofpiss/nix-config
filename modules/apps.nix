@@ -162,7 +162,6 @@
     impala
     wiremix
     fzf
-    iwd
 
     # Audio & music
     easyeffects
