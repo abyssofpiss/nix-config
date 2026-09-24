@@ -60,12 +60,12 @@
     user = "abyss";
     musicDirectory = "/home/abyss/Music";
 
-  extraConfig = ''
-    audio_output {
-      type "pipewire"
-      name "PipeWire Sound Server"
-     }
-   '';
+  settings = {
+      audio_output = {
+        type = "pipewire";
+        name = "PipeWire Sound Server";
+      };
+    };
   };
 
   # Bootloader configurations
