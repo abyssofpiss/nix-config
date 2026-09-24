@@ -179,6 +179,7 @@
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
   ];
-
+  
+  services.dbus.enable = true;
   services.gvfs.enable = true; 
 }
