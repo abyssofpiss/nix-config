@@ -160,7 +160,7 @@
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "Bibata-Modern-Classic";
-    HYPRCURSOR_SIZE + "24";  
+    HYPRCURSOR_SIZE = "24";  
   };
 
   environment.etc."gtk-3.0/settings.ini".text = ''
