@@ -98,7 +98,11 @@
 
   # Network & Identity Settings
   networking.hostName = "nixos"; 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
+  networking.wireless.iwd.enable = true;
 
   # Localisation & Time
   time.timeZone = "Asia/Kuala_Lumpur";
