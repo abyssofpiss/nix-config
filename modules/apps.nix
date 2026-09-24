@@ -55,16 +55,16 @@
     format = "[░▒▓](estuary_seafoam)[  $username ](bg:estuary_seafoam fg:estuary_bg)[](fg:estuary_seafoam bg:estuary_subtle)[ $directory ](fg:estuary_fg bg:estuary_subtle)[](fg:estuary_subtle bg:estuary_subtle2)[ $git_branch$git_status ](fg:estuary_fg bg:estuary_subtle2)[](fg:estuary_subtle2 bg:estuary_base)[ $nodejs$rust$golang$php ](fg:estuary_fg bg:estuary_base)[](fg:estuary_base bg:estuary_dark)[ $time ](fg:estuary_fg bg:estuary_dark)[ ](fg:estuary_dark)\n$character";
     palette = "atelier_estuary";
     palettes.atelier_estuary = {
-      estuary_bg      = "#22221b"; # black
-      estuary_dark    = "#2a2a22"; # Container / edge shade
-      estuary_base    = "#302f27"; # Base section background
-      estuary_subtle  = "#5f5e4e"; # Muted section background
-      estuary_subtle2 = "#6c6b5a"; # Secondary muted background
-      estuary_fg      = "#929181"; # light grey
-      estuary_green   = "#5b9d48"; # green
-      estuary_seafoam = "#36a166"; # seafoam
-      estuary_blue    = "#5f9182"; # blue
-      estuary_orange  = "#ba6236"; # Warning/Root accent
+      estuary_bg      = "#22221b"; 
+      estuary_dark    = "#2a2a22"; 
+      estuary_base    = "#302f27"; 
+      estuary_subtle  = "#5f5e4e"; 
+      estuary_subtle2 = "#6c6b5a"; 
+      estuary_fg      = "#e7e6df"; 
+      estuary_green   = "#5b9d48"; 
+      estuary_seafoam = "#36a166"; 
+      estuary_blue    = "#5f9182"; 
+      estuary_orange  = "#ba6236"; 
     };
 
     username = {
