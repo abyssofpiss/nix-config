@@ -159,7 +159,6 @@
     zathura
     yazi
     bat
-    impala
     wiremix
     fzf
 
