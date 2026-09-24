@@ -52,8 +52,12 @@
   programs.starship = {
   enable = true;
   settings = {
-    format = "[░▒▓](estuary_green)[  $username ](bg:estuary_green fg:estuary_bg)[](fg:estuary_green bg:estuary_subtle)[ $directory ](fg:estuary_seafoam bg:estuary_subtle)[](fg:estuary_subtle bg:estuary_subtle2)[ $git_branch$git_status ](fg:estuary_blue bg:estuary_subtle2)[](fg:estuary_subtle2 bg:estuary_base)[ $nodejs$rust$golang$php ](fg:estuary_seafoam bg:estuary_base)[](fg:estuary_base bg:estuary_dark)[ $time ](fg:estuary_fg bg:estuary_dark)[ ](fg:estuary_dark)\n$character";
+    # Pill format styled with custom Estuary palette
+    format = "[░▒▓](estuary_seafoam)[  $username ](bg:estuary_seafoam fg:estuary_bg)[](fg:estuary_seafoam bg:estuary_subtle)[ $directory ](fg:estuary_green bg:estuary_subtle)[](fg:estuary_subtle bg:estuary_subtle2)[ $git_branch$git_status ](fg:estuary_blue bg:estuary_subtle2)[](fg:estuary_subtle2 bg:estuary_base)[ $nodejs$rust$golang$php ](fg:estuary_seafoam bg:estuary_base)[](fg:estuary_base bg:estuary_dark)[ $time ](fg:estuary_fg bg:estuary_dark)[ ](fg:estuary_dark)\n$character";
+
     palette = "atelier_estuary";
+
+    # Palette with explicit user hex overrides
     palettes.atelier_estuary = {
       estuary_bg      = "#22221b"; # black
       estuary_dark    = "#2a2a22"; # Container / edge shade
@@ -67,15 +71,16 @@
       estuary_orange  = "#ba6236"; # Warning/Root accent
     };
 
+    # Username module configuration
     username = {
       show_always = true;
-      style_user = "bg:estuary_green fg:estuary_bg bold";
+      style_user = "bg:estuary_seafoam fg:estuary_bg bold";
       style_root = "bg:estuary_orange fg:estuary_bg bold";
       format = "[$user]($style)";
     };
 
     directory = {
-      style = "fg:estuary_seafoam bg:estuary_subtle";
+      style = "fg:estuary_green bg:estuary_subtle";
       format = "[$path]($style)";
       truncation_length = 3;
       truncation_symbol = "…/";
@@ -125,7 +130,7 @@
 
     character = {
       disabled = false;
-      success_symbol = "[❯](bold #5b9d48)";
+      success_symbol = "[❯](bold #36a166)";
       error_symbol = "[❯](bold #ba6236)";
     };
   };
