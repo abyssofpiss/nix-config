@@ -18,6 +18,12 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    settings = {
+      Theme = {
+        CursorTheme = "Bibata-Modern-Classic";
+        CursorSize = "24";
+      };
+    };
   };
 
   # Set GStreamer plugin path globally so SDDM and QtMultimedia can find codecs
