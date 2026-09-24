@@ -100,9 +100,7 @@
   networking.hostName = "nixos"; 
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd";
   };
-  networking.wireless.iwd.enable = true;
 
   # Localisation & Time
   time.timeZone = "Asia/Kuala_Lumpur";
@@ -157,7 +155,7 @@
     bluez
     bluetui
     bibata-cursors
-    gcr_4
+    zenity
   ];
 
   # Cursor
@@ -178,8 +176,10 @@
     ${pkgs.xsetroot}/bin/xsetroot -xcf ${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic/cursors/left_ptr 24
   '';
 
-  # gcr ssh prompt 
-  programs.ssh.askPassword = "${pkgs.gcr_4}/libexec/gcr-prompter";
+  # zenity ssh prompt 
+  programs.ssh.askPassword = pkgs.lib.mkForce (pkgs.writeShellScript "zenity-askpass" ''
+    ${pkgs.zenity}/bin/zenity --password --title="Authentication Required" --text="$1"
+  '');
 
   # System-wide shell shortcuts
   environment.shellAliases = {
