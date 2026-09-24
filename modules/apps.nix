@@ -49,86 +49,85 @@
   };
 
   # Starship
-  programs.starship = {
-    enable = true;
-    settings = {
-      format = "[░▒▓](estuary_green)[  $username ](bg:estuary_green fg:estuary_bg)[](fg:estuary_green bg:estuary_subtle)[ $directory ](fg:estuary_fg bg:estuary_subtle)[](fg:estuary_subtle bg:estuary_subtle2)[ $git_branch$git_status ](fg:estuary_green bg:estuary_subtle2)[](fg:estuary_subtle2 bg:estuary_base)[ $nodejs$rust$golang$php ](fg:estuary_green bg:estuary_base)[](fg:estuary_base bg:estuary_dark)[ $time ](fg:estuary_fg bg:estuary_dark)[ ](fg:estuary_dark)\n$character";
-      palette = "atelier_estuary";
-      palettes.atelier_estuary = {
-        estuary_bg      = "#22221b"; # Base dark background
-        estuary_dark    = "#2a2a22"; # Container / edge shade
-        estuary_base    = "#302f27"; # Base section background
-        estuary_subtle  = "#5f5e4e"; # Muted section background
-        estuary_subtle2 = "#6c6b5a"; # Secondary muted background
-        estuary_fg      = "#e7e6df"; # Foreground text
-        estuary_green   = "#7d9726"; # Primary Estuary Green accent
-        estuary_teal    = "#5b9d48"; # Secondary Green/Teal accent
-        estuary_orange  = "#ba6236"; # Warning/Root accent
-      };
+programs.starship = {
+  enable = true;
 
-      username = {
-        show_always = true;
-        style_user = "bg:estuary_green fg:estuary_bg bold";
-        style_root = "bg:estuary_orange fg:estuary_bg bold";
-        format = "[$user]($style)";
-      };
+  settings = {
+    format = "[](#36a166)[  $username ](bg:seafoam fg:black)[](bg:blue fg:seafoam)[ $directory ](bg:blue fg:black)[](bg:black fg:blue)[ $git_branch $git_status ](bg:black fg:seafoam)[ $nodejs$rust$golang$php ](bg:black fg:green)[](bg:black fg:black)[  $time ](bg:black fg:light_grey)[](fg:black)\n$character";
 
-      directory = {
-        style = "fg:estuary_fg bg:estuary_subtle";
-        format = "[$path]($style)";
-        truncation_length = 3;
-        truncation_symbol = "…/";
-      };
+    palette = "estuary_light";
 
-      git_branch = {
-        symbol = "";
-        style = "bg:estuary_subtle2";
-        format = "[[ $symbol $branch ](fg:estuary_fg bg:estuary_subtle2)]($style)";
-      };
+    palettes.estuary_light = {
+      seafoam    = "#36a166"; # Active highlight / primary pill
+      green      = "#5b9d48"; # Secondary accents / dev icons
+      blue       = "#5f9182"; # Secondary pill background
+      black      = "#22221b"; # Base dark background / high-contrast text
+      light_grey = "#929181"; # Muted text & time indicator
+    };
 
-      git_status = {
-        style = "bg:estuary_subtle2";
-        format = "[[($all_status$ahead_behind )](fg:estuary_fg bg:estuary_subtle2)]($style)";
-      };
+    username = {
+      show_always = true;
+      style_user = "bg:seafoam fg:black bold";
+      style_root = "bg:seafoam fg:black bold";
+      format = "[$user]($style)";
+    };
 
-      nodejs = {
-        symbol = "";
-        style = "bg:estuary_base";
-        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
-      };
+    directory = {
+      style = "bg:blue fg:black bold";
+      format = "[$path]($style)";
+      truncation_length = 3;
+      truncation_symbol = "…/";
+    };
 
-      rust = {
-        symbol = "";
-        style = "bg:estuary_base";
-        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
-      };
+    git_branch = {
+      symbol = "";
+      style = "bg:black fg:seafoam";
+      format = "[ $symbol $branch ]($style)";
+    };
 
-      golang = {
-        symbol = "";
-        style = "bg:estuary_base";
-        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
-      };
+    git_status = {
+      style = "bg:black fg:green";
+      format = "[$all_status$ahead_behind]($style)";
+    };
 
-      php = {
-        symbol = "🐘";
-        style = "bg:estuary_base";
-        format = "[[ $symbol ($version) ](fg:estuary_fg bg:estuary_base)]($style)";
-      };
+    nodejs = {
+      symbol = "";
+      style = "bg:black fg:green";
+      format = "[ $symbol ($version) ]($style)";
+    };
 
-      time = {
-        disabled = false;
-        time_format = "%R";
-        style = "bg:estuary_dark";
-        format = "[[  $time ](fg:estuary_fg bg:estuary_dark)]($style)";
-      };
+    rust = {
+      symbol = "";
+      style = "bg:black fg:green";
+      format = "[ $symbol ($version) ]($style)";
+    };
 
-      character = {
-        disabled = false;
-        success_symbol = "[❯](bold #7d9726)";
-        error_symbol = "[❯](bold #ba6236)";
-      };
+    golang = {
+      symbol = "";
+      style = "bg:black fg:green";
+      format = "[ $symbol ($version) ]($style)";
+    };
+
+    php = {
+      symbol = "🐘";
+      style = "bg:black fg:green";
+      format = "[ $symbol ($version) ]($style)";
+    };
+
+    time = {
+      disabled = false;
+      time_format = "%R";
+      style = "bg:black fg:light_grey";
+      format = "[  $time ]($style)";
+    };
+
+    character = {
+      disabled = false;
+      success_symbol = "[❯](bold #36a166)";
+      error_symbol = "[❯](bold #5b9d48)";
     };
   };
+};
 
   # Daily Drivers and Terminal Utilities
   environment.systemPackages = with pkgs; [
