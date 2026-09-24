@@ -50,9 +50,23 @@
       "default.clock.quantum" = 128; 
       "default.clock.min-quantum" = 32;
       "default.clock.max-quantum" = 1024;
+      };
     };
+  };  
+
+  # Music player daemon
+  services.mpd = {
+    enable = true;
+    user = "abyss";
+    musicDirectory = "/home/abyss/Music";
+
+  extraConfig = ''
+    audio_output {
+      type "pipewire"
+      name "PipeWire Sound Server"
+     }
+   '';
   };
-};
 
   # Bootloader configurations
   boot.loader.systemd-boot.enable = false;
@@ -132,19 +146,19 @@
   
   # For the DAWs to work optimally
   security.pam.loginLimits = [
-  {
-    domain = "@audio";
-    type = "-";
-    item = "rtprio";
-    value = "99";
-  }
-  {
-    domain = "@audio";
-    type = "-";
-    item = "memlock";
-    value = "unlimited";
-  }
-];
+    {
+      domain = "@audio";
+      type = "-";
+      item = "rtprio";
+      value = "99";
+    }
+    {
+      domain = "@audio";
+      type = "-";
+      item = "memlock";
+      value = "unlimited";
+    }
+  ];
 
   # Core Tools (Always available even if modules fail to load)
   environment.systemPackages = with pkgs; [
