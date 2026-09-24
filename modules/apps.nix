@@ -161,6 +161,8 @@
     bat
     wiremix
     fzf
+    trash-cli
+    glib
 
     # Audio & music
     easyeffects
@@ -177,4 +179,6 @@
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
   ];
+
+  services.gvfs.enable = true; 
 }
