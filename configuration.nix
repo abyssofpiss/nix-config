@@ -211,10 +211,12 @@
   # stuffs for the files app
   services.gvfs.enable = true;
   services.dbus.enable = true;
+  programs.gsettings-desktop-schemas.enable = true;
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
   };
 
   # System-wide shell shortcuts
