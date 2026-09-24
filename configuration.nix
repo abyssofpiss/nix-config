@@ -152,7 +152,26 @@
     btop
     bluez
     bluetui
+    bibata-cursors
   ];
+
+  # Cursor
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "24";
+    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
+    HYPRCURSOR_SIZE + "24";  
+  };
+
+  environment.etc."gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-cursor-theme-name=Bibata-Modern-Classic
+    gtk-cursor-theme-size=24
+  '';
+
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.xorg.xsetroot}/bin/xsetroot -xcf ${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic/cursors/left_ptr 24
+  '';
 
   # System-wide shell shortcuts
   environment.shellAliases = {
