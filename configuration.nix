@@ -225,7 +225,7 @@
             icon-theme = "Adwaita";
           };
         }; 
-      };
+      }
     ];
   };
 
