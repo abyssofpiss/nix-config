@@ -211,7 +211,6 @@
   # stuffs for the files app
   services.gvfs.enable = true;
   services.dbus.enable = true;
-  programs.gsettings-desktop-schemas.enable = true;
 
   xdg.portal = {
     enable = true;
