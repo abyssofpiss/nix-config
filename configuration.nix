@@ -177,9 +177,9 @@
   '';
 
   # zenity ssh prompt 
-  programs.ssh.askPassword = pkgs.lib.mkForce (pkgs.writeShellScript "zenity-askpass" ''
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.writeShellScript "zenity-askpass" ''
     ${pkgs.zenity}/bin/zenity --password --title="Authentication Required" --text="$1"
-  '');
+  ''}";
 
   # System-wide shell shortcuts
   environment.shellAliases = {
