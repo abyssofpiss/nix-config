@@ -56,17 +56,20 @@
 
   # Music player daemon
   services.mpd = {
-    enable = true;
-    user = "abyss";
-    musicDirectory = "/home/abyss/Music";
-
+  enable = true;
+  user = "abyss";
+  musicDirectory = "/home/abyss/Music";
+  
   settings = {
-      audio_output = {
+    # Wrap audio_output in a list using [ ]
+    audio_output = [
+      {
         type = "pipewire";
         name = "PipeWire Sound Server";
-      };
-    };
+      }
+    ];
   };
+};
 
   # Bootloader configurations
   boot.loader.systemd-boot.enable = false;
