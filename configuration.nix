@@ -175,7 +175,7 @@
   '';
 
   # gcr ssh prompt 
-  programs.shh.askPassword = "{pkgs.gcr}/libexec/gcr-prompter";
+  programs.ssh.askPassword = "{pkgs.gcr}/libexec/gcr-prompter";
 
   # System-wide shell shortcuts
   environment.shellAliases = {
