@@ -112,6 +112,14 @@
 
   services.upower.enable = true;
 
+  services.tlp = {
+    enable = true;
+    settings = {
+      START_CHARGE_THRESH_BAT0 = 75;
+      STOP_CHARGE)THRESH_BAT0 - 90;
+    };
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
     "quiet"
