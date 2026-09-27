@@ -16,10 +16,10 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable SDDM
+  services.displayManager.defaultSession = "niri";
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    defaultSession = "niri";
     extraPackages = with pkgs; [
       bibata-cursors
     ];
