@@ -87,12 +87,12 @@
 
   # Bootloader configurations
   boot.loader.systemd-boot.enable = false;
+  boot.loader.timeout = 18;
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
     device = "nodev";
     useOSProber =  true;
-    timeout = 18;
 
   # Theme
   theme = pkgs.stdenv.mkDerivation {
