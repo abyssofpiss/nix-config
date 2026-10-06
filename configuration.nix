@@ -92,7 +92,7 @@
     efiSupport = true;
     device = "nodev";
     useOSProber =  true;
-  boot.loader.timeout = 18;
+    timeout = 18;
 
   # Theme
   theme = pkgs.stdenv.mkDerivation {
