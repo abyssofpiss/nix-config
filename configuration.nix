@@ -67,8 +67,8 @@
 
   # Music player daemon
   services.mpd = {
-  enable = true;
-  user = "abyss";
+    enable = true;
+    user = "abyss";
   
   settings = {
     music_directory = "/home/abyss/Music";
@@ -76,6 +76,7 @@
       {
         type = "pipewire";
         name = "PipeWire Sound Server";
+        format = "44100:16:2";
       }
     ];
   };
