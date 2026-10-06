@@ -92,6 +92,7 @@
     efiSupport = true;
     device = "nodev";
     useOSProber =  true;
+  boot.loader.timeout = 18;
 
   # Theme
   theme = pkgs.stdenv.mkDerivation {
@@ -113,14 +114,6 @@
   };
 
   services.upower.enable = true;
-
-  services.tlp = {
-    enable = true;
-    settings = {
-      START_CHARGE_THRESH_BAT0 = 75;
-      STOP_CHARGE_THRESH_BAT0 = 90;
-    };
-  };
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
