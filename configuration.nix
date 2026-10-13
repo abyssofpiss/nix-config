@@ -72,7 +72,7 @@
   
   settings = {
     music_directory = "/home/abyss/Music";
-    buffer_time = "200000";
+    audio_buffer_time = "200000";
     audio_output = [
       {
         type = "pipewire";
