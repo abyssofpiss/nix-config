@@ -72,11 +72,12 @@
   
   settings = {
     music_directory = "/home/abyss/Music";
+    buffer_time = "200000";
     audio_output = [
       {
         type = "pipewire";
         name = "PipeWire Sound Server";
-        format = "44100:16:2";
+        format = "48000:16:2";
       }
     ];
   };
