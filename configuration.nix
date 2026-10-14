@@ -85,6 +85,15 @@
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
+  
+  systemd.user.services.mpd-mpris = {
+    description = "MPD MPRIS Bridge";
+    wantedBy = ["default.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.mpd-mpris}/bin/mpd-mpris";
+      Restart = "on-failure";
+     };
+   };
 
   # Bootloader configurations
   boot.loader.systemd-boot.enable = false;
