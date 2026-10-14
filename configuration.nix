@@ -70,18 +70,17 @@
     enable = true;
     user = "abyss";
   
-  settings = {
-    music_directory = "/home/abyss/Music";
-  };
-
-  extraConfig = ''
-    audio_output {
-      type "pipewire"
-      name "PipeWire Sound Server"
-      format "48000:16:2"
-      buffer_time "100000"
-    }
-  '';
+    settings = {
+      music_directory = "/home/abyss/Music";
+      audio_output = [
+        {
+          type = "pipewire";
+          name = "PipeWire Sound Server";
+          format = "48000:16:2";
+          buffer_time = "100000";
+        }
+      ];
+    };
   };
 
   systemd.services.mpd.environment = {
