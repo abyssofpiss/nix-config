@@ -72,15 +72,15 @@
   
   settings = {
     music_directory = "/home/abyss/Music";
-    audio_output = [
-      {
-        type = "pipewire";
-        name = "PipeWire Sound Server";
-        format = "48000:16:2";
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "PipeWire Sound Server"
+        format "4800:16:2"
+        buffer_time "100000"
       }
-    ];
+   '';
   };
-};
 
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
