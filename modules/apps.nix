@@ -176,6 +176,7 @@
     zrythm
     rmpc
     mpd
+    mpd-mpris
 
     #Stuff for quickshell wallpapers
     gst_all_1.gstreamer
