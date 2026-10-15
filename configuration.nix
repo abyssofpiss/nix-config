@@ -77,7 +77,6 @@
         {
           type = "pipewire";
           name = "PipeWire Sound Server";
-          format = "";
           buffer_time = "200000";
         }
       ];
