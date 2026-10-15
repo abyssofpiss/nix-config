@@ -58,9 +58,10 @@
     extraConfig.pipewire."99-lowlatency" = {
     "context.properties" = {
       "default.clock.rate" = 48000;
-      "default.clock.quantum" = 128; 
-      "default.clock.min-quantum" = 32;
-      "default.clock.max-quantum" = 1024;
+      "default.clock.allowed-rates" = [ 44100 48000 ];
+      "default.clock.quantum" = 512; 
+      "default.clock.min-quantum" = 64;
+      "default.clock.max-quantum" = 2048;
       };
     };
   };  
@@ -76,17 +77,20 @@
         {
           type = "pipewire";
           name = "PipeWire Sound Server";
-          format = "48000:16:2";
-          buffer_time = "100000";
+          format = "";
+          buffer_time = "200000";
         }
       ];
     };
   };
 
-  systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/1000";
+  systemd.services.mpd = {
+    environment = {
+      XDG_RUNTIME_DIR = "/run/user/1000";
+    };
+     after = [ "display-manager.service" ];
   };
-  
+
   systemd.user.services.mpd-mpris = {
     description = "MPD MPRIS Bridge";
     wantedBy = ["default.target"];
